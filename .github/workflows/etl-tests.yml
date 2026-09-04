@@ -28,7 +28,7 @@ jobs:
       - name: Install ETL dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas openpyxl requests pytest anywidget plotly
+          pip install -r requirements.txt
 
       - name: Run ETL core tests
         run: pytest tests/etl/test_core_etl.py -v
