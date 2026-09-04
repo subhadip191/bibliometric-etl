@@ -281,13 +281,13 @@ with ui.tags.div(id="mainContent", class_="main-content"):
                     <center> 
                     For an introduction and live examples, visit the <a href="https://www.bibliometrix.org/home/">Bibliometrix website</a>
                     <hr>
-                    📖 biblioshiny and bibliometrix are open-source and freely available for use, distributed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>. 
+                    📖 biblioshiny and bibliometrix are open-source and freely available for use, distributed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU General Public License v3.0</a>. 
                     <br>
-                    When they are used in a publication, we ask that authors to cite the following reference:      
+                    When they are used in a publication, we ask that authors cite the following reference:
                     <br><br>
-                    <pre> Aria, M., & Cuccurullo, C. (2017). bibliometrix: An R-tool for comprehensive science mapping analysis. 
-                    Journal of Informetrics, 11(4), 959-975. </pre>       
-                    ❗ Failure to properly cite the software is considered a violation of the license.
+                    <pre>Aria, M., & Cuccurullo, C. (2017). bibliometrix: An R-tool for comprehensive science mapping analysis.
+                    Journal of Informetrics, 11(4), 959-975.</pre>
+                    ❗ When used in academic publications, please cite the original bibliometrix reference.
                     <br>
                     </center>
                 </div>
