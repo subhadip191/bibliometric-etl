@@ -14,10 +14,16 @@ def is_missing(value: Any) -> bool:
     """Return True when a value should be treated as missing."""
     if value is None:
         return True
+
     if isinstance(value, float) and math.isnan(value):
         return True
+
+    if isinstance(value, (list, tuple, set, dict)):
+        return False
+
     try:
-        return bool(pd.isna(value)) and not isinstance(value, (list, tuple, set, dict))
+        result = pd.isna(value)
+        return isinstance(result, bool) and result
     except (TypeError, ValueError):
         return False
 
