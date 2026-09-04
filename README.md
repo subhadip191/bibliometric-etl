@@ -1,161 +1,110 @@
-<!-- README.md for bibliometrix-python -->
+# 📚 Bibliometrix Python
 
-# bibliometrix-python
+### A Python-Based Bibliometric Analysis and Science Mapping Platform
 
-## A Python tool for comprehensive science mapping analysis
+**Bibliometrix Python** is a Python-based implementation of core bibliometric analysis and science-mapping functionality inspired by the established [`bibliometrix`](https://github.com/massimoaria/bibliometrix) R ecosystem.
 
-[![bibliometrix: An R-tool for comprehensive science mapping
-analysis.](https://www.bibliometrix.org/JOI-badge.svg)](https://doi.org/10.1016/j.joi.2017.08.007)
+The project provides a modern Python environment for importing, processing, analyzing, and visualizing bibliographic data from multiple scholarly databases. It combines an ETL-oriented data pipeline with interactive analytical tools to support researchers in exploring scientific literature, research trends, collaboration networks, citation structures, and thematic development.
 
-<p align="center">
-<img src="https://www.bibliometrix.org/logo_new.png" width="400"/>
-</p>
+> **Academic Project**
+> Developed collaboratively by a four-member team under the supervision of **Professor Vincenzo Moscato**.
 
-## Overview
+---
 
-**bibliometrix-python** is a Python implementation of the renowned **bibliometrix** R package, providing a comprehensive set of tools for quantitative research in bibliometrics and scientometrics.
+## ✨ Features
 
-This project reimplements the core functionality of [bibliometrix](https://github.com/massimoaria/bibliometrix) (developed by Massimo Aria and Corrado Cuccurullo) using Python and the Shiny for Python framework, making these powerful bibliometric tools accessible to the Python scientific community.
+### 📥 Bibliographic Data Import
 
-Bibliometrics applies quantitative analysis and statistics to scientific publications and their citation patterns. It has become essential across all scientific fields for evaluating growth, maturity, leading authors, conceptual and intellectual maps, and emerging trends within research communities.
+Import and process bibliographic records from multiple scholarly data sources, including:
 
-**bibliometrix-python** supports scholars in three key phases of analysis:
+* 🌐 Web of Science
+* 📊 Scopus
+* 📚 OpenAlex
+* 📐 Dimensions
+* 🔍 The Lens
+* 🧬 PubMed
+* ⚕️ Cochrane
 
-- **Data importing and conversion** from major bibliographic databases (Web of Science, Scopus, PubMed, Dimensions, Lens, Cochrane)
+The system is designed to work with commonly used bibliographic export formats while providing a unified processing workflow.
 
-- **Bibliometric analysis** of publication datasets, including descriptive statistics, author productivity, and source impact
+---
 
-- **Building and visualizing networks** for co-citation, coupling, collaboration, and co-word analysis
+### 🔄 Bibliometric ETL Pipeline
 
-## biblioshiny: Python Edition
+The project follows an **Extract → Transform → Load** workflow for bibliographic data:
 
-**bibliometrix-python** includes an interactive web application built with **Shiny for Python**, providing an intuitive interface for comprehensive bibliometric analysis.
-
-The web application enables scholars to easily access bibliometric analysis features through an interactive workflow:
-
-### Data Management
-
-- **Import and convert** data from multiple bibliographic databases via the
-  source-agnostic ETL pipeline (`www/services/etl/`), which standardizes every
-  source into the 24-column Web of Science schema:
-  - Web of Science (plaintext, BibTeX, EndNote) - ✅ Supported
-  - Scopus (CSV) - ✅ Supported (ETL)
-  - Dimensions (Excel) - ✅ Supported (ETL)
-  - PubMed (plaintext export) - ✅ Supported (ETL)
-  - Lens.org (CSV) - ✅ Supported (ETL)
-  - Cochrane CDSR (plaintext) - ✅ Supported (ETL)
-  - OpenAlex / PubMed (live API query) - ✅ Supported (no manual download)
-
-- **Filter data** by various criteria including publication years, languages, document types, citation counts, and Bradford's Law zones
-
-- **Sample datasets** for testing and learning
-
-### Analytics and Visualization
-
-- **Three-level metrics** for comprehensive analysis:
-
-  - **Sources**: journal performance, impact metrics, Bradford's Law, sources' local impact, production over time
-
-  - **Authors**: productivity analysis, Lotka's Law, collaboration patterns, h-index, local impact, affiliations analysis
-
-  - **Documents**: citation analysis, most relevant papers, references spectroscopy
-
-- **Countries Analysis**: scientific production by country, collaboration networks, corresponding authors' countries
-
-### Knowledge Structure Analysis
-
-- **Conceptual Structure**: analyzing topics and themes through co-word analysis, thematic mapping, and thematic evolution
-
-- **Intellectual Structure**: examining citation networks through co-citation analysis, historiograph, and document coupling
-
-- **Social Structure**: exploring collaboration patterns through co-authorship networks at author, institution, and country levels
-
-### Content Analysis Features
-
-- **Word Analysis**: frequent words, word clouds, treemaps, word frequency over time
-
-- **Trend Topics**: identify emerging and declining research topics
-
-- **Three-Field Plot**: Sankey diagrams for exploring relationships between authors, keywords, and journals
-
-### Advanced Features
-
-- **AI-Powered Assistant**: Integrated Google Gemini AI chatbot for contextual help and insights - 🧪 BETA
-
-- **Interactive Reports**: Generate comprehensive Excel reports combining multiple analyses
-
-- **Export Capabilities**: Download plots as high-resolution images and tables as Excel files
-
-### How to use biblioshiny
-
-To launch the application, simply run:
-
-```bash
-shiny run app.py
+```text
+Bibliographic Sources
+        │
+        ▼
+     Extract
+        │
+        ▼
+     Transform
+        │
+        ├── Metadata normalization
+        ├── Author processing
+        ├── Keyword processing
+        ├── Citation processing
+        └── Data cleaning
+        │
+        ▼
+       Load
+        │
+        ▼
+Structured Bibliometric Dataset
+        │
+        ▼
+ Analysis & Visualization
 ```
 
-Or using Python:
+This architecture allows data from different sources to be transformed into a consistent structure suitable for downstream bibliometric analysis.
 
-```bash
-python -m shiny run app.py
-```
+---
 
-The application will start and provide a local URL (typically `http://127.0.0.1:8000`) to access the web interface.
+## 📊 Bibliometric Analysis
 
-## How to cite
+The platform supports analytical workflows for exploring:
 
-If you use this package for your research, please cite the original R package:
+* 📈 Publication trends
+* 👥 Author productivity
+* 🏛️ Institutional collaboration
+* 🌍 Country and geographic contributions
+* 📑 Citation analysis
+* 🔗 Co-authorship networks
+* 🔑 Keyword analysis
+* 🧩 Co-occurrence networks
+* 📚 Bibliographic coupling
+* 🔄 Co-citation analysis
+* 🧠 Thematic analysis
+* 📌 Research impact indicators
+* 📊 Science-mapping visualizations
 
-Aria, M. & Cuccurullo, C. (2017) **bibliometrix: An R-tool for comprehensive science mapping analysis**, *Journal of Informetrics*, 11(4), pp 959-975, Elsevier, DOI: 10.1016/j.joi.2017.08.007
+The goal is to provide researchers with an integrated workflow for moving from raw bibliographic records to interpretable research insights.
 
-## Community
+---
 
-**Original bibliometrix (R version):**
-- Official website: https://www.bibliometrix.org
-- CRAN page: https://cran.r-project.org/package=bibliometrix
-- GitHub repository: https://github.com/massimoaria/bibliometrix
+## 🖥️ Interactive Interface
 
-**Python implementation:**
-- GitHub repository: https://github.com/PRAISELab-PicusLab/bibliometrix-python
-- Issue tracker: https://github.com/PRAISELab-PicusLab/bibliometrix-python/issues
+The application provides an interactive interface for:
 
-## Installation
+1. Importing bibliographic datasets
+2. Selecting analytical workflows
+3. Processing bibliographic metadata
+4. Generating statistical summaries
+5. Exploring networks and relationships
+6. Creating visualizations
+7. Exporting analytical results
 
-### Prerequisites
+The interface is designed to make bibliometric workflows accessible without requiring users to manually implement each analytical procedure.
 
-- Python 3.9 or higher
-- pip package manager
+---
 
-### Install from source
+## 🏗️ Project Architecture
 
-Clone the repository:
+The project is organized around separate components for data processing, analysis, visualization, and application functionality.
 
-```bash
-git clone https://github.com/PRAISELab-PicusLab/bibliometrix-python.git
-cd bibliometrix-python
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Run the application
-
-```bash
-shiny run app.py
-```
-
-Or specify custom host and port:
-
-```bash
-shiny run app.py --port 8000 --host 0.0.0.0
-```
-
-## Project Structure
-
-```plaintext
+```text
 bibliometrix-python/
 │
 ├── app.py                  # Main application entry point
@@ -189,158 +138,211 @@ bibliometrix-python/
     └── Cochrane/
 ```
 
-## Key Features
-
-### Data Import and Processing
-
-bibliometrix-python supports importing bibliographic data from major scientific
-databases. A source-agnostic ETL pipeline (`www/services/etl/`) standardizes
-each source into the Web of Science 24-column schema so the analytical functions
-run unchanged:
-
-- **Web of Science**: plaintext (.txt), BibTeX (.bib), EndNote (.ciw) - ✅ Supported
-- **Scopus**: CSV (.csv) - ✅ Supported (ETL)
-- **PubMed**: plaintext export (.txt) - ✅ Supported (ETL)
-- **Dimensions**: Excel (.xlsx) - ✅ Supported (ETL)
-- **Lens.org**: CSV (.csv) - ✅ Supported (ETL)
-- **Cochrane**: plaintext (.txt) - ✅ Supported (ETL)
-- **OpenAlex / PubMed**: live API query - ✅ Supported (pagination, retries, caching)
-
-See [TESTING.md](TESTING.md) for how to exercise each source and
-[PROJECT_REPORT.md](PROJECT_REPORT.md) for the ETL architecture.
-
-### Comprehensive Bibliometric Analysis
-
-The application provides extensive analysis capabilities organized by analytical level:
-
-#### Overview Analysis
-- Main information and descriptive statistics
-- Annual scientific production
-- Average citations per year
-- Document type distribution
-- Keywords analysis
-
-#### Sources Analysis
-- Most relevant sources (journals)
-- Most locally cited sources
-- Bradford's Law
-- Sources' local impact
-- Sources' production over time
-
-#### Authors Analysis
-- Most relevant authors
-- Most locally cited authors
-- Authors' production over time
-- Lotka's Law
-- Authors' local impact
-- Affiliations analysis
-- Author collaboration patterns
-
-#### Documents Analysis
-- Most globally cited documents
-- Most locally cited documents
-- Most locally cited references
-- References spectroscopy
-- Frequent words analysis
-- Word clouds and treemaps
-- Words' frequency over time
-- Trend topics
-
-#### Network Analysis
-- Co-occurrence networks
-- Co-citation networks
-- Collaboration networks
-- Country collaboration maps
-- Thematic maps
-- Thematic evolution
-- Clustering analysis
-- Factorial analysis
-- Historiograph
-
-### Interactive Visualizations
-
-All analyses include interactive visualizations built with Plotly and other modern Python libraries:
-
-- Bar charts, line plots, and scatter plots
-- Network diagrams
-- Sankey diagrams (Three-Field Plot)
-- Heatmaps
-- Word clouds
-- Treemaps
-- Thematic maps
-
-### Export and Reporting
-
-- Export plots as high-resolution PNG images (customizable DPI)
-- Download tables as Excel files
-- Generate comprehensive reports combining multiple analyses
-- Add analyses to report collection for batch download
-
-## AI Assistant Integration (BETA)
-
-The application includes an AI-powered chatbot using Google Gemini API to help users:
-
-- Understand bibliometric concepts
-- Interpret analysis results
-- Get contextual help
-- Receive recommendations for further analysis
-
-**Note:** This feature is currently in BETA testing.
-
-To use the AI assistant, configure your Gemini API key in the Settings panel.
-
-## Acknowledgments
-
-This project is a Python reimplementation of the original **bibliometrix** R package developed by:
-
-**Massimo Aria** and **Corrado Cuccurullo**  
-*University of Naples Federico II, Italy*
-
-We are grateful for their pioneering work in making bibliometric analysis accessible to researchers worldwide.
-
-For the original R implementation and comprehensive documentation, please visit:
-- Website: https://www.bibliometrix.org
-- GitHub: https://github.com/massimoaria/bibliometrix
-
-### Main References (Original bibliometrix)
-
-Aria, M. & Cuccurullo, C. (2017). **bibliometrix: An R-tool for comprehensive science mapping analysis**, *Journal of Informetrics*, 11(4), pp 959-975, Elsevier, DOI: 10.1016/j.joi.2017.08.007
-
-Aria, M., Le, T., Cuccurullo, C., Belfiore, A., & Choe, J. (2024). **openalexR: An R-Tool for Collecting Bibliometric Data from OpenAlex**. *The R Journal*, DOI: 10.32614/RJ-2023-089
-
-Aria, M., Cuccurullo, C., D'Aniello, L., Misuraca, M., & Spano, M. (2022). **Thematic Analysis as a New Culturomic Tool: The Social Media Coverage on COVID-19 Pandemic in Italy**. *Sustainability*, 14(6), 3643
-
-For a complete list of references and applications, visit: https://www.bibliometrix.org
-
-## 🤝 Contributing
-
-We welcome contributions to improve the application! To contribute, simply open a pull request or report issues on our [issue tracker](https://github.com/PRAISELab-PicusLab/bibliometrix-python/issues). We look forward to your improvements!
-
-## 👨‍💻 Team
-
-This project was developed by:
-
-**Mariano Barone** · **Gian Marco Orlando** · **Giuseppe Riccio** · **Antonio Romano** · **Diego Russo** · **Vincenzo Moscato**
-
-*Department of Electrical Engineering and Information Technology*  
-*University of Naples Federico II, Italy*
-
-**Research Lab:** The [PRAISE](https://github.com/PRAISELab) (PRedictive AnalytIcs for underUnderstanding big multimEdia data) research group is part of the PICUS Lab at the Department of Electrical Engineering and Information Technologies (DIETI), University of Naples Federico II, Italy.
-
-## 📄 License
-
-This application is distributed under the GNU General Public License as specified in the [LICENSE](LICENSE) file.
-
-When used in a publication, please cite the original bibliometrix R package (see [How to cite](#how-to-cite) section).
-
-## ⚠️ Development Notes
-
-**Note:** This is an independent Python implementation and may not be fully compatible with the R version. Some features are still under development.
-
-For detailed development status and known issues, please check the [issue tracker](https://github.com/PRAISELab-PicusLab/bibliometrix-python/issues).
+The modular structure is intended to make the system easier to maintain, extend, and integrate with additional bibliographic data sources and analytical methods.
 
 ---
 
-<p align="center">
-Made with ❤️ by PRAISELab Team at University of Naples Federico II
-</p>
+## 🛠️ Technology Stack
+
+| Technology              | Purpose                                   |
+| ----------------------- | ----------------------------------------- |
+| **Python**              | Core programming language                 |
+| **Pandas**              | Data manipulation and processing          |
+| **NumPy**               | Numerical computation                     |
+| **SciPy**               | Scientific computing                      |
+| **Scikit-learn**        | Statistical and machine-learning analysis |
+| **NetworkX / igraph**   | Network analysis                          |
+| **Matplotlib / Plotly** | Data visualization                        |
+| **GeoPandas**           | Geographic analysis                       |
+| **Shiny for Python**    | Interactive application interface         |
+| **NLTK**                | Natural-language processing               |
+| **WordCloud**           | Keyword visualization                     |
+| **Selenium**            | Web-based data workflows                  |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Python **3.10 or higher**
+* `pip`
+* Git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/subhadip191/bibliometric-etl.git
+cd bibliometric-etl
+```
+
+### 2. Create a virtual environment
+
+#### Windows
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+#### macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the application
+
+```bash
+python app.py
+```
+
+Follow the application's interface to import bibliographic data and begin the analysis workflow.
+
+---
+
+## 🧪 Testing
+
+The project includes automated tests covering important components of the application.
+
+Run the test suite with:
+
+```bash
+pytest
+```
+
+For more detailed output:
+
+```bash
+pytest -v
+```
+
+Testing is used to verify data-processing functionality and reduce regressions as the project evolves.
+
+---
+
+## 📁 Supported Data Workflow
+
+A typical analysis can be performed through the following workflow:
+
+```text
+1. Export bibliographic records
+              │
+              ▼
+2. Import dataset
+              │
+              ▼
+3. Validate and normalize metadata
+              │
+              ▼
+4. Build structured bibliometric data
+              │
+              ▼
+5. Select analysis
+              │
+              ▼
+6. Generate statistics / networks
+              │
+              ▼
+7. Visualize results
+              │
+              ▼
+8. Interpret research trends
+```
+
+This workflow is designed to support reproducible bibliometric research from raw bibliographic records through final analytical outputs.
+
+---
+
+## 🔬 Relationship to Bibliometrix
+
+This project is inspired by and implements functionality associated with the **bibliometrix** ecosystem developed for comprehensive science mapping analysis.
+
+The original `bibliometrix` project is an R-based open-source project developed by **Massimo Aria and Corrado Cuccurullo**, together with its broader contributor community.
+
+This repository contains the **Python implementation developed by our team** and is **not an official Python distribution of the original bibliometrix R package**.
+
+For the original project and its complete contributor history, please refer to:
+
+**bibliometrix — R-tool for comprehensive science mapping analysis**
+https://github.com/massimoaria/bibliometrix
+
+---
+
+## 👨‍💻 Development Team
+
+This project was developed collaboratively as an academic/research project by a four-member team under the supervision of:
+
+### 🎓 Supervisor
+
+**Professor Vincenzo Moscato**
+
+### 👥 Team Members
+
+* **Subhadip Maity**
+* **Vedant Gajanan Pawar**
+* **Deepak Kushwaha**
+* **Vishal Kumar**
+
+All members contributed to the development, implementation, testing, documentation, and refinement of the project.
+
+---
+
+## 📖 Citation
+
+If you use this project or its implementation in academic work, please acknowledge the original bibliometrix research:
+
+> Aria, M., & Cuccurullo, C. (2017). *bibliometrix: An R-tool for comprehensive science mapping analysis*. Journal of Informetrics, 11(4), 959–975.
+
+**DOI:** 10.1016/j.joi.2017.08.007
+
+The citation acknowledges the original bibliometrix research and methodology on which this project builds.
+
+---
+
+## 📜 License
+
+This project is distributed under the **GNU General Public License v3.0 (GPL-3.0)**.
+
+See the [`LICENSE`](LICENSE) file for the complete license text.
+
+---
+
+## 🙏 Acknowledgements
+
+We would like to acknowledge:
+
+* **Massimo Aria and Corrado Cuccurullo** for the original bibliometrix project and its contributions to bibliometric and science-mapping research.
+* The **bibliometrix contributor community** for the development and continued evolution of the original ecosystem.
+* **Professor Vincenzo Moscato** for academic supervision and guidance throughout the development of this project.
+* All members of the development team for their collaborative contributions.
+
+---
+
+## 📌 Project Status
+
+**Academic / Research Project**
+
+The current implementation focuses on providing core bibliometric data-processing, analysis, and visualization capabilities in a Python environment.
+
+The architecture is designed to be extensible, allowing additional data sources, analytical methods, visualization techniques, and bibliometric indicators to be incorporated in future development.
+
+---
+
+## 📫 Repository
+
+**GitHub:**
+https://github.com/subhadip191/bibliometric-etl
+
+---
+
+### ⭐ Acknowledgement
+
+If this project is useful for your research or development work, consider giving the repository a ⭐ on GitHub.
